@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball Bet</title>
+
+    <!-- style imports -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/buttons_style.css') }}">
+
+    {% block additional_styles %}
+    {% endblock %}
+
+    {#    <link rel="stylesheet" href="./styles/main_style.css">#}
+    {#    <link rel="stylesheet" href="./styles/home_style.css">#}
+    {#    <link rel="stylesheet" href="./styles/buttons_style.css">#}
+
+
+    <!-- font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text&family=Roboto:wght@900&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="main-header">
+    <h1 class="main-title">Ball Bet</h1>
+    <nav>
+        <ul class="links-list">
+            <li>
+                <a class="nav-button type2" href="#">Home</a>
+            </li>
+
+            <li>
+                <a class="nav-button type2" href="#">About</a>
+            </li>
+
+            <li>
+                <a class="nav-button type2" href="#">Contact</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {% block main_content %}
+    {% endblock %}
+</main>
+</body>
+
+</html>

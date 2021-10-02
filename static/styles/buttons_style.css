@@ -1,0 +1,78 @@
+
+.main-button {
+    position: relative;
+    padding: 1em 1.5em;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+
+    font-size: 1.6rem;
+    margin: 1em 0.8em;
+
+}
+
+/* Type 1 Button */
+
+.main-button.type1 {
+    text-decoration: none;
+    color: #FFF;
+}
+
+
+.main-button.type1.type1::after, .main-button.type1.type1::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border: 2px solid;
+    transition: all 0.6s ease;
+    border-radius: 2px;
+}
+
+.main-button.type1.type1::after {
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: #FFF;
+    border-right-color: #FFF;
+}
+
+.main-button.type1.type1::before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #FFF;
+    border-left-color: #FFF;
+}
+
+.main-button.type1.type1:hover:after, .main-button.type1.type1:hover:before {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes show-underline {
+    0% {width: 0}
+    25% {width: 25px}
+    50% {width: 100px}
+}
+
+/* Type 2 Button */
+
+.type2::after {
+    content: "";
+    display: block;
+    position: absolute;
+
+    width: 0;
+    height: 5px;
+    background: rgb(255, 255, 255);
+}
+
+.type2:hover::after {
+    animation: show-underline 1s;
+    width: 100px;
+}

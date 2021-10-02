@@ -1,0 +1,85 @@
+
+.heading-text {
+    margin: 2% auto 5%;
+    padding: 10% 5% 5%;
+
+    width: 60%;
+    min-width: 500px;
+
+    font-size: 2.5rem;
+    text-align: center;
+
+    text-shadow: 5px 5px 5px #000;
+}
+
+header.home-header::before {
+    content: "";
+    display: inline;
+    position: absolute;
+    opacity: 0.65;
+
+    width: 99%;
+    max-width: 2000px;
+    height: 55%;
+    
+    z-index: -1;
+    
+    background-image: url('/static/images/players.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-nav-holder {
+    margin-left: 13%;
+    margin-bottom: 3%;
+
+    text-shadow: 5px 5px 5px #000;
+}
+
+.home-nav {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+
+.home-nav-title {
+    margin-bottom: 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.home-nav-text {
+    margin-bottom: 15%;
+    font-size: 1.5rem;
+}
+
+.vline {
+    display: inline-block;
+
+    margin: 0 5%;
+    
+    height: 230px;
+
+    border-left: 6px solid #535353;
+}
+
+.home-holder-holder:before {
+    content: "";
+    display: inline;
+    position: absolute;
+    opacity: 0.6;
+
+    width: 99%;
+    max-width: 2000px;
+    height: 41%;
+    max-height: 400px;
+    
+    z-index: -1;
+    
+    background-image: url('/static/images/stadium.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 0 0 100px 100px;
+}
