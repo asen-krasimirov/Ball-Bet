@@ -54,13 +54,13 @@
     height: 100%;
 }
 
+/* Type 2 Button */
+
 @keyframes show-underline {
     0% {width: 0}
     25% {width: 25px}
     50% {width: 100px}
 }
-
-/* Type 2 Button */
 
 .type2::after {
     content: "";

@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+@keyframes light-up {
+    0% { opacity: 0.65 }
+    25% { opacity: 0.8 }
+    50% { opacity: 0.9 }
+}
+
+@keyframes light-down {
+    0% { opacity: 0.9 }
+    25% { opacity: 0.8 }
+    50% { opacity: 0.65 }
+}
+
 html {
     box-sizing: inherit;
 
@@ -17,13 +29,13 @@ html {
 header.main-header {
     display: flex;
     padding-bottom: 20px;
-    
 }
 
 header.main-header::before {
     content: "";
     display: inline;
     position: absolute;
+    animation: light-down 500ms;
     opacity: 0.65;
 
     width: 99%;
@@ -38,6 +50,11 @@ header.main-header::before {
     background-size: cover;
 
     border-radius: 100px 100px 0 0;
+}
+
+header.main-header:hover::before {
+    animation: light-up 500ms;
+    opacity: 0.9;
 }
 
 .main-title {

@@ -10,12 +10,15 @@
     text-align: center;
 
     text-shadow: 5px 5px 5px #000;
+
+    cursor: default;
 }
 
 header.home-header::before {
     content: "";
     display: inline;
     position: absolute;
+    animation: light-down 500ms;
     opacity: 0.65;
 
     width: 99%;
@@ -29,11 +32,18 @@ header.home-header::before {
     background-size: cover;
 }
 
+header.home-header:hover::before {
+    animation: light-up 500ms;
+    opacity: 0.9;
+}
+
 .home-nav-holder {
     margin-left: 13%;
     margin-bottom: 3%;
 
     text-shadow: 5px 5px 5px #000;
+
+    cursor: default;
 }
 
 .home-nav {
@@ -67,6 +77,7 @@ header.home-header::before {
     content: "";
     display: inline;
     position: absolute;
+    animation: light-down 500ms;
     opacity: 0.6;
 
     width: 99%;
@@ -82,4 +93,9 @@ header.home-header::before {
     background-size: cover;
 
     border-radius: 0 0 100px 100px;
+}
+
+.home-holder-holder:hover::before {
+    animation: light-up 500ms;
+    opacity: 0.85;
 }
