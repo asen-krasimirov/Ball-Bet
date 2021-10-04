@@ -4,6 +4,10 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/fixtures_style.css') }}">
 {% endblock %}
 
+{% block additional_scripts %}
+    <script type="module" src="{{ url_for('static', filename='scripts/club_names_popup.js') }}"></script>
+{% endblock %}
+
 {% block main_content %}
     <header class="fixtures-header">
         <h1>Fixtures</h1>
@@ -17,8 +21,13 @@
                 {% for content in rounds[round] %}
                     <article class="future-match">
                         <img src="{{ url_for('static', filename=content['home_logo'])}}" alt="home-team-logo">
+                        <span class="name-popup">{{ content['home_name'] }}</span>
+
                         <span class="vs-text">VS</span>
+
                         <img src="{{ url_for('static', filename=content['away_logo'])}}" alt="away-team-logo">
+                        <span class="name-popup">{{ content['away_name'] }}</span>
+
                         <p class="match-date-text">{{ content['date'] }}</p>
                     </article>
                 {% endfor %}

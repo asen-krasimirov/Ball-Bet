@@ -84,3 +84,16 @@
 .matches-holder {
     padding: 1%;
 }
+
+.name-popup {
+    display: none;
+    position: absolute;
+    padding: 5px;
+    font-size: 1.1rem;
+    background-color: #3C3C3C;
+    border-radius: 5px;
+}
+
+.name-popup.show {
+    display: inline-block;
+}

@@ -4,56 +4,6 @@ from datetime import datetime, timedelta
 import requests
 
 
-# def get_fixtures_data(date='', competition_id='244'):
-#     def correct_time():
-#         for content in data:
-#             fixture_date = list(map(int, content['date'].split('-')))
-#             fixture_time = list(map(int, content['time'].split(':')))
-#             content['date'] = datetime(
-#                 year=fixture_date[0], month=fixture_date[1], day=fixture_date[2],
-#                 hour=fixture_time[0], minute=fixture_time[1]
-#             ) + timedelta(hours=3)
-#
-#     def attach_club_logos():
-#         for content in data:
-#             content['home_logo'] = f'images/club_logos/{(content["home_name"])}.png'
-#             content['away_logo'] = f'images/club_logos/{(content["away_name"])}.png'
-#
-#     def sort_data_by_round():
-#         sorted_data = {}
-#
-#         cur_index = 0
-#         cur_round = None
-#         while True:
-#             content = data[cur_index]
-#             if content['round'] not in sorted_data:
-#                 cur_round = content['round']
-#                 sorted_data[cur_round] = []
-#
-#                 continue
-#
-#             sorted_data[cur_round].append(content)
-#             cur_index += 1
-#             if cur_index >= len(data):
-#                 break
-#
-#         return sorted_data
-#
-#     url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
-#
-#     querystring['competition_id'] = competition_id
-#
-#     if date:  # format -> 'today' / '2021-10-19'
-#         querystring['date'] = date
-#
-#     data = requests.request('GET', url, params=querystring).text
-#     data = json.loads(data)['data']['fixtures']
-#
-#     correct_time()
-#     attach_club_logos()
-#     return sort_data_by_round()
-
-
 def get_fixtures_data(date='', competition_id='244'):
     def correct_time():
         for content in all_data:
