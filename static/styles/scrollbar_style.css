@@ -1,26 +1,26 @@
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
+    box-shadow: inset 0 0 2px #888888;
     border-radius: 10px;
-    background-color: #3C3C3C;
+    background-color: #1e348d;
 }
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #888888; 
     border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #808080; 
+    background: #1d70be;
+    box-shadow: inset 0 0 3px #888888;
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #5c5c5c;
+    background: #1d86be;
     cursor: pointer;
 }

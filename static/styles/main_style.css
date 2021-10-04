@@ -90,4 +90,5 @@ nav {
 .links-list li a {
     text-decoration: none;
     color: #FFF;
+    cursor: pointer;
 }
