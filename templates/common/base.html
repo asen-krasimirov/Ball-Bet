@@ -10,14 +10,10 @@
     <!-- style imports -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main_style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/buttons_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/scrollbar_style.css') }}">
 
     {% block additional_styles %}
     {% endblock %}
-
-    {#    <link rel="stylesheet" href="./styles/main_style.css">#}
-    {#    <link rel="stylesheet" href="./styles/home_style.css">#}
-    {#    <link rel="stylesheet" href="./styles/buttons_style.css">#}
-
 
     <!-- font imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +30,7 @@
     <nav>
         <ul class="links-list">
             <li>
-                <a class="nav-button type2" href="#">Home</a>
+                <a class="nav-button type2" href="{{ url_for('home_page') }}">Home</a>
             </li>
 
             <li>

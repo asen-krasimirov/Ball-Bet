@@ -1,3 +1,4 @@
+from api_calls import get_fixtures_data
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -15,7 +16,9 @@ def home_page():
 
 @app.route('/fixtures')
 def fixtures_page():
-    return 'fixtures page...'
+    data = get_fixtures_data()
+    # __import__('pprint').pprint(data)
+    return render_template('fixtures.html', rounds=data)
 
 
 @app.route('/standings')

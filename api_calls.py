@@ -1,36 +1,131 @@
 import json
+from datetime import datetime, timedelta
 
 import requests
+
+
+# def get_fixtures_data(date='', competition_id='244'):
+#     def correct_time():
+#         for content in data:
+#             fixture_date = list(map(int, content['date'].split('-')))
+#             fixture_time = list(map(int, content['time'].split(':')))
+#             content['date'] = datetime(
+#                 year=fixture_date[0], month=fixture_date[1], day=fixture_date[2],
+#                 hour=fixture_time[0], minute=fixture_time[1]
+#             ) + timedelta(hours=3)
+#
+#     def attach_club_logos():
+#         for content in data:
+#             content['home_logo'] = f'images/club_logos/{(content["home_name"])}.png'
+#             content['away_logo'] = f'images/club_logos/{(content["away_name"])}.png'
+#
+#     def sort_data_by_round():
+#         sorted_data = {}
+#
+#         cur_index = 0
+#         cur_round = None
+#         while True:
+#             content = data[cur_index]
+#             if content['round'] not in sorted_data:
+#                 cur_round = content['round']
+#                 sorted_data[cur_round] = []
+#
+#                 continue
+#
+#             sorted_data[cur_round].append(content)
+#             cur_index += 1
+#             if cur_index >= len(data):
+#                 break
+#
+#         return sorted_data
+#
+#     url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
+#
+#     querystring['competition_id'] = competition_id
+#
+#     if date:  # format -> 'today' / '2021-10-19'
+#         querystring['date'] = date
+#
+#     data = requests.request('GET', url, params=querystring).text
+#     data = json.loads(data)['data']['fixtures']
+#
+#     correct_time()
+#     attach_club_logos()
+#     return sort_data_by_round()
+
+
+def get_fixtures_data(date='', competition_id='244'):
+    def correct_time():
+        for content in all_data:
+            fixture_date = list(map(int, content['date'].split('-')))
+            fixture_time = list(map(int, content['time'].split(':')))
+            content['date'] = datetime(
+                year=fixture_date[0], month=fixture_date[1], day=fixture_date[2],
+                hour=fixture_time[0], minute=fixture_time[1]
+            ) + timedelta(hours=3)
+
+    def attach_club_logos():
+        for content in all_data:
+            content['home_logo'] = f'images/club_logos/{(content["home_name"])}.png'
+            content['away_logo'] = f'images/club_logos/{(content["away_name"])}.png'
+
+    def sort_data_by_round():
+        sorted_data = {}
+
+        cur_index = 0
+        cur_round = None
+        while True:
+            content = all_data[cur_index]
+            if content['round'] not in sorted_data:
+                cur_round = content['round']
+                sorted_data[cur_round] = []
+
+                continue
+
+            sorted_data[cur_round].append(content)
+            cur_index += 1
+            if cur_index >= len(all_data):
+                break
+
+        return sorted_data
+
+    url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
+    querystring['competition_id'] = competition_id
+
+    if date:  # format -> 'today' / '2021-10-19'
+        querystring['date'] = date
+
+    all_data = []
+
+    cur_page = 1
+    while True:
+        """ Get all possible pages from the API. """
+        querystring['page'] = str(cur_page)
+
+        cur_data = requests.request('GET', url, params=querystring).text
+        cur_data = json.loads(cur_data)['data']
+
+        all_data += cur_data['fixtures']
+
+        if not cur_data['next_page']:
+            break
+
+        cur_page += 1
+
+    correct_time()
+    attach_club_logos()
+    return sort_data_by_round()
 
 
 api_key = 'AqwYEHLfTdMhQMWv'
 api_secret = '70ezFej6TdHbhIQS9mQN3C2XPPeGCbbK'
 
-url = 'https://livescore-api.com/api-client/fixtures/matches.json'
-
-# url = 'https://livescore-api.com/api-client/scores'
-# url = 'http://livescore-api.com/api-client/leagues/list.json'
+# url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
+# url = 'https://livescore-api.com/api-client/fixtures/matches.json?date=2021-10-19'
 
 querystring = {
-
-    # 'date': 'today',
-    'key': 'AqwYEHLfTdMhQMWv',
-    'secret': '70ezFej6TdHbhIQS9mQN3C2XPPeGCbbK',
-
-    # 'competition_id': 566,
-    # 'league_id': 174,
-    'league': 174,
-    # 'country_name': 'Champions League',
+    'key': api_key,
+    'secret': api_secret,
 }
 
-# 'country_name': 'Champions League',
-# 'fixures': 'https://livescore-api.com/api-client/fixtures/matches.json?key=AqwYEHLfTdMhQMWv&amp;secret=70ezFej6TdHbhIQS9mQN3C2XPPeGCbbK&amp;league=174',
-# 'league_id': '174',
-# 'league_name': 'Group A',
-# 'scores': 'https://livescore-api.com/api-client/scores/live.json?key=AqwYEHLfTdMhQMWv&amp;secret=70ezFej6TdHbhIQS9mQN3C2XPPeGCbbK&amp;league=174'}
-
-data = requests.request('GET', url, params=querystring).text
-# data = json.loads(data)['data']['fixtures']
-data = json.loads(data)
-
-__import__('pprint').pprint(data)
+# __import__('pprint').pprint(get_fixtures_data())  # for debugging
