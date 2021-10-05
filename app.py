@@ -1,5 +1,5 @@
-from api_calls import get_fixtures_data
-from flask import Flask, render_template
+from api_calls import get_fixtures_data, get_fixtures_by_club_name, sort_data_by_round
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -16,8 +16,14 @@ def home_page():
 
 @app.route('/fixtures')
 def fixtures_page():
-    data = get_fixtures_data()
-    # __import__('pprint').pprint(data)
+
+    club_name = request.args.get('club-name')
+    if club_name is not None:
+        data = get_fixtures_by_club_name(club_name)
+    else:
+        data = get_fixtures_data()
+
+    data = sort_data_by_round(data)
     return render_template('fixtures.html', rounds=data)
 
 

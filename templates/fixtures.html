@@ -13,6 +13,14 @@
         <h1>Fixtures</h1>
     </header>
 
+    <form class="club-name-form">
+        <label>
+            Club Name:
+            <input name="club-name">
+        </label>
+        <button class="submit-button">Search</button>
+    </form>
+
     {% for round in rounds %}
         <section class="future-matches-holder">
             <h3 class="future-matches-title">Matchday {{ round }}</h3>

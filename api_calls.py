@@ -4,6 +4,27 @@ from datetime import datetime, timedelta
 import requests
 
 
+def sort_data_by_round(all_data):
+    sorted_data = {}
+
+    cur_index = 0
+    cur_round = None
+    while True:
+        content = all_data[cur_index]
+        if content['round'] not in sorted_data:
+            cur_round = content['round']
+            sorted_data[cur_round] = []
+
+            continue
+
+        sorted_data[cur_round].append(content)
+        cur_index += 1
+        if cur_index >= len(all_data):
+            break
+
+    return sorted_data
+
+
 def get_fixtures_data(date='', competition_id='244'):
     def correct_time():
         for content in all_data:
@@ -18,26 +39,6 @@ def get_fixtures_data(date='', competition_id='244'):
         for content in all_data:
             content['home_logo'] = f'images/club_logos/{(content["home_name"])}.png'
             content['away_logo'] = f'images/club_logos/{(content["away_name"])}.png'
-
-    def sort_data_by_round():
-        sorted_data = {}
-
-        cur_index = 0
-        cur_round = None
-        while True:
-            content = all_data[cur_index]
-            if content['round'] not in sorted_data:
-                cur_round = content['round']
-                sorted_data[cur_round] = []
-
-                continue
-
-            sorted_data[cur_round].append(content)
-            cur_index += 1
-            if cur_index >= len(all_data):
-                break
-
-        return sorted_data
 
     url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
     querystring['competition_id'] = competition_id
@@ -64,7 +65,23 @@ def get_fixtures_data(date='', competition_id='244'):
 
     correct_time()
     attach_club_logos()
-    return sort_data_by_round()
+    return all_data
+
+
+def get_fixtures_by_club_name(club_name):
+    all_data = get_fixtures_data()
+    collected_data = []
+
+    for content in all_data:
+        if content['home_name'] != club_name and content['away_name'] != club_name:
+            continue
+
+        collected_data.append(content)
+
+    if not collected_data:
+        collected_data = all_data
+
+    return collected_data
 
 
 api_key = 'AqwYEHLfTdMhQMWv'

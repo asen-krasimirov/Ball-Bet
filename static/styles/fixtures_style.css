@@ -41,9 +41,9 @@
     margin-left: 1%;
     margin-right: 1%;
     margin-bottom: 1%;
-    
+
     padding: 1%;
-    
+
     width: 30%;
     min-width: 650px;
     max-height: 30%;
@@ -97,4 +97,62 @@
 
 .name-popup.show {
     display: inline-block;
+}
+
+.club-name-form {
+    padding: 0.5%;
+    font-size: 1.5rem;
+}
+
+.club-name-form input {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+@keyframes light-up-fixture {
+    0% {
+        background: #1e348d
+    }
+    25% {
+        background: #1e3d8d
+    }
+    50% {
+        background: #1e478d
+    }
+    100% {
+        background: #1e508d
+    }
+}
+
+@keyframes light-down-fixture {
+    0% {
+        background: #1e508d
+    }
+    25% {
+        background: #1e478d
+    }
+    50% {
+        background: #1e3d8d
+    }
+    100% {
+        background: #1e348d
+    }
+}
+
+.submit-button {
+    animation: light-down-fixture 500ms;
+    font-size: 1.3rem;
+    font-weight: 100;
+
+    background: #1e348d;
+    color: #FFF;
+    border: 1px solid #888888;
+
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    animation: light-up-fixture 500ms;
+    background: #1e508d;
 }
