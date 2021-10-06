@@ -84,8 +84,22 @@ def get_fixtures_by_club_name(club_name):
     return collected_data
 
 
-api_key = 'AqwYEHLfTdMhQMWv'
-api_secret = '70ezFej6TdHbhIQS9mQN3C2XPPeGCbbK'
+def get_all_club_names(data):
+    club_names = []
+    for content in data:
+        home_name = content['home_name']
+        away_name = content['away_name']
+
+        if home_name not in club_names:
+            club_names.append(home_name)
+        if away_name not in club_names:
+            club_names.append(away_name)
+
+    return club_names
+
+
+api_key = '#'
+api_secret = '#'
 
 # url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
 # url = 'https://livescore-api.com/api-client/fixtures/matches.json?date=2021-10-19'

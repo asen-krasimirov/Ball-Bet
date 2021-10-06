@@ -16,7 +16,13 @@
     <form class="club-name-form">
         <label>
             Club Name:
-            <input name="club-name">
+            <input id="club-name" list="club-names" name="club-name" placeholder="Enter a club name...">
+
+            <datalist id="club-names">
+                {% for name in club_names %}
+                    <option value="{{ name }}">
+                {% endfor %}
+            </datalist>
         </label>
         <button class="submit-button">Search</button>
     </form>
@@ -28,12 +34,12 @@
             <div class="slider">
                 {% for content in rounds[round] %}
                     <article class="future-match">
-                        <img src="{{ url_for('static', filename=content['home_logo'])}}" alt="home-team-logo">
+                        <img src="{{ url_for('static', filename=content['home_logo']) }}" alt="home-team-logo">
                         <span class="name-popup">{{ content['home_name'] }}</span>
 
                         <span class="vs-text">VS</span>
 
-                        <img src="{{ url_for('static', filename=content['away_logo'])}}" alt="away-team-logo">
+                        <img src="{{ url_for('static', filename=content['away_logo']) }}" alt="away-team-logo">
                         <span class="name-popup">{{ content['away_name'] }}</span>
 
                         <p class="match-date-text">{{ content['date'] }}</p>

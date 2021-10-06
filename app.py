@@ -1,4 +1,4 @@
-from api_calls import get_fixtures_data, get_fixtures_by_club_name, sort_data_by_round
+from api_calls import get_fixtures_data, get_fixtures_by_club_name, sort_data_by_round, get_all_club_names
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -23,8 +23,9 @@ def fixtures_page():
     else:
         data = get_fixtures_data()
 
+    club_names = get_all_club_names(data)
     data = sort_data_by_round(data)
-    return render_template('fixtures.html', rounds=data)
+    return render_template('fixtures.html', rounds=data, club_names=club_names)
 
 
 @app.route('/standings')
