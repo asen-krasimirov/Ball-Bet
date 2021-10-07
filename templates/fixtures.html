@@ -34,13 +34,20 @@
             <div class="slider">
                 {% for content in rounds[round] %}
                     <article class="future-match">
-                        <img src="{{ url_for('static', filename=content['home_logo']) }}" alt="home-team-logo">
-                        <span class="name-popup">{{ content['home_name'] }}</span>
+                        <div class="teams-info-holder">
 
-                        <span class="vs-text">VS</span>
+                            <div class="club-img-holder home">
+                                <img src="{{ url_for('static', filename=content['home_logo']) }}" alt="home-team-logo">
+                                <span class="name-popup">{{ content['home_name'] }}</span>
+                            </div>
 
-                        <img src="{{ url_for('static', filename=content['away_logo']) }}" alt="away-team-logo">
-                        <span class="name-popup">{{ content['away_name'] }}</span>
+                            <span class="vs-text">VS</span>
+
+                            <div class="club-img-holder away">
+                                <img src="{{ url_for('static', filename=content['away_logo']) }}" alt="away-team-logo">
+                                <span class="name-popup">{{ content['away_name'] }}</span>
+                            </div>
+                        </div>
 
                         <p class="match-date-text">{{ content['date'] }}</p>
                     </article>

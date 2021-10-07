@@ -64,10 +64,46 @@
     margin: auto;
 }
 
-.future-match img {
-    margin: auto 5%;
+.teams-info-holder {
+    display: block;
+    position: relative;
+    margin: auto;
+}
+
+.future-match div.club-img-holder {
+    position: relative;
+
+    display: inline-block;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
+.future-match div.club-img-holder.home {
+    left: 5%;
+}
+
+.future-match div.club-img-holder.away {
+    left: 30%;
+}
+
+.future-match div.club-img-holder img {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     max-width: 200px;
     max-height: 200px;
+}
+
+.vs-text {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .match-date-text {
@@ -75,6 +111,7 @@
     padding: 0;
     margin: 0;
     text-align: center;
+    /*clear: both;*/
 }
 
 .match-date-text span {
