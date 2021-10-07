@@ -1,0 +1,116 @@
+@keyframes background-glow-up {
+    0% {
+        box-shadow: 0 0 0px 0px #344080;
+    }
+    50% {
+        box-shadow: 0 0 15px 5px #344080;
+    }
+    100% {
+        box-shadow: 0 0 30px 10px #344080;
+    }
+}
+
+
+nav.standings-nav {
+    display: block;
+    margin: 3% auto 0 auto;
+    width: 50%;
+}
+
+nav.standings-nav ul {
+    padding: 0;
+}
+
+nav.standings-nav li {
+    display: inline-block;
+    position: relative;
+    margin: 2.1%;
+
+    width: 70px;
+    height: 70px;
+
+    background: #1B234A;
+    border-radius: 50%;
+}
+
+nav.standings-nav li.selected {
+    background: #47569e;
+}
+
+nav.standings-nav li:hover {
+    animation: background-glow-up 500ms;
+    box-shadow: 0 0 30px 10px #344080;
+}
+
+nav.standings-nav li a {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50px;
+    height: 50px;
+
+    font-size: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.group-holder {
+    width: 95%;
+    margin: auto;
+    padding: 1% 3%;
+    background: #1F2056;
+}
+
+.group-holder table {
+    margin: 0;
+    width: 100%;
+    font-size: 3rem;
+}
+
+/* .group-holder table th,
+.group-holder table td {
+    display: inline-block;
+    margin: auto 1%;
+} */
+
+/* th.club-name,
+td.club-name {
+    width: 50%;
+} */
+
+td {
+    text-align: center;
+}
+
+td.club {
+    text-align: left;
+}
+
+.club-image-holder {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    /* top: 5%; */
+    width: 50px;
+    height: 50px;
+}
+
+td.club img {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 3rem;
+    max-height: 3rem;
+}
+
+.club-name-holder {
+    display: inline-block;
+    vertical-align: middle;
+}

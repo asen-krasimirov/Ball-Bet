@@ -98,8 +98,24 @@ def get_all_club_names(data):
     return club_names
 
 
-api_key = '#'
-api_secret = '#'
+def get_group_standings(group: str, competition_id='244'):
+    def attach_club_logos():
+        for content in group_data:
+            content['logo'] = f'images/club_logos/{(content["name"])}.png'
+
+    url = 'https://livescore-api.com/api-client/leagues/table.json'
+    querystring['competition_id'] = competition_id
+    querystring['group'] = group
+
+    group_data = requests.request('GET', url, params=querystring).text
+    group_data = json.loads(group_data)['data']['table']
+
+    attach_club_logos()
+    return group_data
+
+
+api_key = 'WI6R8d4muiwNGUKy'
+api_secret = '1L6BzQzMo7ke3hEZ0LR8YVvse2gUX0tY'
 
 # url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
 # url = 'https://livescore-api.com/api-client/fixtures/matches.json?date=2021-10-19'

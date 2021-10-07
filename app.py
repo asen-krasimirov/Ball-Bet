@@ -1,4 +1,5 @@
-from api_calls import get_fixtures_data, get_fixtures_by_club_name, sort_data_by_round, get_all_club_names
+from api_calls import get_fixtures_data, get_fixtures_by_club_name, sort_data_by_round, get_all_club_names, \
+    get_group_standings
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -30,7 +31,9 @@ def fixtures_page():
 
 @app.route('/standings')
 def standings_page():
-    return 'standings page...'
+    group = request.args.get('group') or 'A'
+    group_data = get_group_standings(group)
+    return render_template('standings.html', group_data=group_data)
 
 
 @app.route('/events')

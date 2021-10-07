@@ -1,0 +1,94 @@
+{% extends 'common/base.html' %}
+
+{% block additional_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/standings_style.css') }}">
+{% endblock %}
+
+{% block additional_scripts %}
+    <script type="module" src="{{ url_for('static', filename='scripts/color_selected_group.js') }}"></script>
+{% endblock %}
+
+{% block main_content %}
+    <nav class="standings-nav">
+        <ul>
+            <li class="group-a">
+                <a href="{{ url_for('standings_page', group='A') }}">A</a>
+            </li>
+            <li class="group-b">
+                <a href="{{ url_for('standings_page', group='B') }}">B</a>
+            </li>
+            <li class="group-c">
+                <a href="{{ url_for('standings_page', group='C') }}">C</a>
+            </li>
+            <li class="group-d">
+                <a href="{{ url_for('standings_page', group='D') }}">D</a>
+            </li>
+            <li class="group-e">
+                <a href="{{ url_for('standings_page', group='E') }}">E</a>
+            </li>
+            <li class="group-f">
+                <a href="{{ url_for('standings_page', group='F') }}">F</a>
+            </li>
+            <li class="group-g">
+                <a href="{{ url_for('standings_page', group='G') }}">G</a>
+            </li>
+            <li class="group-h">
+                <a href="{{ url_for('standings_page', group='H') }}">H</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div>
+        <section class="group-holder">
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                        Club
+                    </th>
+                    <th>
+                        Points
+                    </th>
+                    <th>
+                        Wins
+                    </th>
+                    <th>
+                        Draws
+                    </th>
+                    <th>
+                        Losses
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for club_data in group_data %}
+                    <tr>
+                        <td class="club">
+                            <div class="club-image-holder">
+                                <img src="{{ url_for('static', filename=club_data.logo) }}" alt="">
+                            </div>
+                            <div class="club-name-holder">{{ club_data.name }}</div>
+                        </td>
+                        <td>
+                            {{ club_data.points }}
+                        </td>
+                        <td>
+                            {{ club_data.won }}
+
+                        </td>
+                        <td>
+                            {{ club_data.drawn }}
+
+                        </td>
+                        <td>
+                            {{ club_data.lost }}
+
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+{% endblock %}
