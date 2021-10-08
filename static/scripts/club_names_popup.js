@@ -8,12 +8,6 @@ mainElements.forEach(
 
         const clubNameElement = target.nextElementSibling;
 
-        let x = event.pageX;
-        let y = event.pageY;
-
-        clubNameElement.style.left = x + 'px';
-        clubNameElement.style.top = y + 'px';
-
         clubNameElement.classList.toggle('show');
 
         target.addEventListener('mouseout', onMouseout);

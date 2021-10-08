@@ -126,6 +126,10 @@
 .name-popup {
     display: none;
     position: absolute;
+
+    top: 1px;
+    right: 1px;
+
     padding: 5px;
     font-size: 1.1rem;
     background-color: #3C3C3C;
