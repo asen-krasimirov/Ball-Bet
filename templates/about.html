@@ -1,0 +1,28 @@
+{% extends 'common/base.html' %}
+
+{% block additional_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/about_style.css') }}">
+{% endblock %}
+
+{% block main_content %}
+    <h2 class="info-page-title">Information Page</h2>
+    <section class="info-section">
+
+        <p class="info-text">
+            <span class="welcoming-text">Welcome to <b>Ball Bet</b>!</span>
+            This is my first Flask App. This app displays the most recent Champions League
+            matches, standings and live scores.
+        </p>
+        <p class="info-text">
+            Visit the project's GitHub page <a href="https://github.com/asen-krasimirov/Ball-Bet">here</a>!
+        </p>
+        <p class="info-text powered-info-text">
+            Powered by
+            <span class="powered-by-text">
+                    <a href="https://live-score-api.com/">
+                        Live-Score API - Soccer API
+                    </a>
+                </span>
+        </p>
+    </section>
+{% endblock %}

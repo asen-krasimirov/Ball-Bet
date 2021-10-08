@@ -1,0 +1,41 @@
+
+.info-page-title {
+    margin: 5%;
+    margin-bottom: 1%;
+    font-size: 3rem;
+    text-align: center;
+}
+
+section.info-section {
+    width: 60%;
+    margin: auto;
+    padding: 2%;
+    background: #1F2056;
+}
+
+section.info-section p.info-text {
+    font-size: 2rem;
+    text-align: justify;
+}
+
+section.info-section p.info-text span.welcoming-text,
+section.info-section p.info-text span.powered-by-text {
+    display: block;
+}
+
+section.info-section p.info-text.powered-info-text {
+    font-size: 1.3rem;
+}
+
+p.info-text a {
+    color: #FFF;
+}
+
+p.info-text a:hover {
+    text-decoration: underline;
+}
+
+span.powered-by-text a {
+    color: #FFF;
+    text-decoration: none;
+}
