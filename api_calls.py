@@ -114,8 +114,8 @@ def get_group_standings(group: str, competition_id='244'):
     return group_data
 
 
-api_key = 'WI6R8d4muiwNGUKy'
-api_secret = '1L6BzQzMo7ke3hEZ0LR8YVvse2gUX0tY'
+api_key = '#'
+api_secret = '#'
 
 # url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
 # url = 'https://livescore-api.com/api-client/fixtures/matches.json?date=2021-10-19'
