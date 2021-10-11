@@ -1,0 +1,142 @@
+
+h2.browser-title {
+    margin: 3%;
+    /* margin-bottom: 1%; */
+    margin-bottom: 0;
+
+    font-size: 4rem;
+    text-align: center;
+}
+
+.matches-holder {
+    width: 80%;
+    margin: auto;
+    padding: 2%;
+}
+
+article.match-info-holder {
+    position: relative;
+    min-width: 1410px;
+    min-height: 230px;
+
+    margin: 1%;
+    padding: 1%;
+    background: #1F2056;
+    border: 5px solid #0e0e22;
+}
+
+article.match-info-holder div {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+    margin: auto;
+    text-align: center;
+}
+
+article.match-info-holder div div.home-img-holder {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 200px;
+    min-height: 200px;
+    width: 49%;
+    position: relative;
+    left: -15%;
+}
+
+article.match-info-holder div div.away-img-holder {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 200px;
+    min-height: 200px;
+    width: 49%;
+    position: relative;
+    right: -15%;
+}
+
+article.match-info-holder div img {
+    display: inline-block;
+    vertical-align: middle;
+
+    max-width: 200px;
+    max-height: 200px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+article.match-info-holder div p {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    font-size: 2.5rem;
+}
+
+article.match-info-holder div.home-info,
+article.match-info-holder div.away-info {
+    position: relative;
+}
+
+
+article.match-info-holder div.home-info p {
+    position: absolute;
+    top: 50%;
+    left: 90%;
+
+    transform: translate(-50%, -50%);
+}
+
+article.match-info-holder div.away-info p {
+    position: absolute;
+    top: 50%;
+    right: 65%;
+
+    transform: translate(-50%, -50%);
+}
+
+article.match-info-holder div.home-info {
+    position: absolute;
+    left: 1%;
+}
+
+article.match-info-holder div.match-info {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    text-align: center;
+}
+
+article.match-info-holder div.match-info * {
+    display: block;
+}
+
+article.match-info-holder div.match-info .match-score {
+    font-size: 5rem;
+}
+
+article.match-info-holder div.away-info {
+    position: absolute;
+    right: 1%;
+}
+
+article.match-info-holder div.match-info a.details-link {
+    width: 60%;
+    margin: auto;
+    padding: 1%;
+    font-size: 1.5rem;
+    text-decoration: none;
+    background: #4444e0;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.no-matches-text {
+    width: 60%;
+    margin: 5% auto auto;
+
+    text-align: center;
+    font-size: 2rem;
+}

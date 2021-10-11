@@ -115,9 +115,24 @@ def get_group_standings(group: str, competition_id='244'):
     return group_data
 
 
-# api_key = 'WI6R8d4muiwNGUKy'
+def get_live_matches(competition_id='244'):
+
+    def attach_club_logos():
+        for content in all_data:
+            content['home_logo'] = f'images/club_logos/{(content["home_name"])}.png'
+            content['away_logo'] = f'images/club_logos/{(content["away_name"])}.png'
+
+    url = 'https://livescore-api.com/api-client/scores/live.json'
+    querystring['competition_id'] = competition_id
+
+    all_data = requests.request('GET', url, params=querystring).text
+    all_data = json.loads(all_data)['data']['match']
+
+    attach_club_logos()
+    return all_data
+
+
 api_key = os.getenv('API_KEY')
-# api_secret = '1L6BzQzMo7ke3hEZ0LR8YVvse2gUX0tY'
 api_secret = os.getenv('API_SECRET')
 
 querystring = {

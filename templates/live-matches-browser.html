@@ -1,0 +1,49 @@
+{% extends 'common/base.html' %}
+
+{% block additional_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/live_matches_browser_style.css') }}">
+{% endblock %}
+
+{% block main_content %}
+    <h2 class="browser-title">Live Matches Browser</h2>
+
+    {% if live_matches %}
+        <section class="matches-holder">
+
+            {% for match in live_matches %}
+                <article class="match-info-holder">
+                    <div class="home-info">
+                        <div class="home-img-holder">
+                            <img src="{{ match.home_logo }}"
+                                 alt="home-logo">
+                        </div>
+
+                        <p class="home-name">
+                            {{ match.home_name }}
+                        </p>
+                    </div>
+                    <div class="match-info">
+                        <p class="match-time">{{ match.time }}'</p>
+                        <p class="match-score">{{ match.score }}</p>
+                        <a class="details-link" href="#">View Live Events</a>
+                    </div>
+                    <div class="away-info">
+                        <p class="away-name">
+                            {{ match.away_name }}
+                        </p>
+
+                        <div class="away-img-holder">
+                            <img src="{{ match.away_logo }}"
+                                 alt="away-logo">
+                        </div>
+                    </div>
+
+                </article>
+            {% endfor %}
+        </section>
+
+    {% else %}
+        <p class="no-matches-text">There are no matches being played at the moment.</p>
+    {% endif %}
+
+{% endblock %}
