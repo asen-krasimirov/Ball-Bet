@@ -1,0 +1,26 @@
+{% extends 'common/base.html' %}
+
+{% block additional_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact_style.css') }}">
+{% endblock %}
+
+
+{% block main_content %}
+        <h2 class="contact-title">Feedback Page</h2>
+
+        <section class="contact-info-holder">
+            <form method="post">
+                <div class="input-holder">
+                    <label for="sender">Email</label>
+                    <input id="sender" name="sender-email">
+                </div>
+
+                <div class="input-holder">
+                    <label for="content">Message</label>
+                    <textarea id="content" name="feed-back-content" rows="4"></textarea>
+                </div>
+
+                <button class="submit-button">Send</button>
+            </form>
+        </section>
+{% endblock %}

@@ -1,0 +1,46 @@
+
+
+h2.contact-title {
+    margin: 3%;
+    margin-bottom: 1%;
+
+    font-size: 3rem;
+    text-align: center;
+}
+section.contact-info-holder {
+    margin: auto;
+    width: 90%;
+    padding: 1%;
+    padding-bottom: 3%;
+
+    font-size: 2rem;
+    text-align: center;
+
+    background: #1F2056;
+}
+
+.contact-info-holder form .input-holder {
+    display: block;
+}
+
+.contact-info-holder form label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 1%;
+}
+
+.contact-info-holder form input,
+.contact-info-holder form textarea {
+    display: block;
+        
+    width: 50%;
+    margin: auto;
+
+    font-size: 2rem;
+    text-align: center;
+}
+
+.contact-info-holder form textarea {
+    padding: 1%;
+    resize: none;
+}

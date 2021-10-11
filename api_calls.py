@@ -1,4 +1,5 @@
 import json
+import os
 from datetime import datetime, timedelta
 
 import requests
@@ -114,15 +115,12 @@ def get_group_standings(group: str, competition_id='244'):
     return group_data
 
 
-api_key = 'WI6R8d4muiwNGUKy'
-api_secret = '1L6BzQzMo7ke3hEZ0LR8YVvse2gUX0tY'
-
-# url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
-# url = 'https://livescore-api.com/api-client/fixtures/matches.json?date=2021-10-19'
+# api_key = 'WI6R8d4muiwNGUKy'
+api_key = os.getenv('API_KEY')
+# api_secret = '1L6BzQzMo7ke3hEZ0LR8YVvse2gUX0tY'
+api_secret = os.getenv('API_SECRET')
 
 querystring = {
     'key': api_key,
     'secret': api_secret,
 }
-
-# __import__('pprint').pprint(get_fixtures_data())  # for debugging
