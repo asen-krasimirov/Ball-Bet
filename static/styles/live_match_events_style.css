@@ -1,0 +1,91 @@
+
+article.match-info-holder {
+    height: 30vh;
+    margin-top: 2%;
+}
+
+h3.events-title {
+    width: 50%;
+    margin: 3% auto;
+
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+p.match-location span {
+     font-size: 1rem;
+}
+
+.event {
+    position: relative;
+    width: 40%;
+    margin: 5% auto;
+    padding: 1%;
+    
+    font-size: 2rem;
+    text-align: center;
+
+    background: #5a5a5a;
+    border: 2px solid #0E0E22;
+    text-shadow: 0 0 15px #0E0E22;
+
+    user-select: none;
+}
+
+.event:hover {
+    box-shadow: 0 0 15px -5px #0E0E22;
+}
+
+.event .event-status img {
+    max-width: 100px;
+}
+
+.event .event-logo {
+    display: inline-block;
+    max-height: 400px;
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    opacity: 0.1;
+}
+
+.event.home-event .event-logo {
+    left: 1px;
+}
+
+.event.away-event .event-logo {
+    right: 1px;
+}
+
+.event i.fa-arrow-up {
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    bottom: -40%;
+    transform: translate(-50%, -50%);
+
+    font-size: 125px;
+
+    color: #0E0E22;
+}
+
+div.kick-off-info {
+    width: 50%;
+    margin: auto;
+    margin-top: 130px;
+    margin-bottom: 30px;
+    
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+div.kick-off-info p {
+    margin: 0px;
+}
+
+i.fa-futbol {
+    font-size: 90px;
+    margin: 20px;
+}

@@ -25,7 +25,7 @@
                     <div class="match-info">
                         <p class="match-time">{{ match.time }}'</p>
                         <p class="match-score">{{ match.score }}</p>
-                        <a class="details-link" href="#">View Live Events</a>
+                        <a class="details-link" href="{{ url_for('live_events_page', match_id=match.id) }}">View Live Events</a>
                     </div>
                     <div class="away-info">
                         <p class="away-name">
@@ -44,6 +44,9 @@
 
     {% else %}
         <p class="no-matches-text">There are no matches being played at the moment.</p>
+        <p class="no-matches-text redirect-text">
+            You can view the schedule for the future matches <a href="{{ url_for('fixtures_page') }}">here</a>.
+        </p>
     {% endif %}
 
 {% endblock %}

@@ -138,5 +138,15 @@ article.match-info-holder div.match-info a.details-link {
     margin: 5% auto auto;
 
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
+}
+
+.redirect-text {
+    width: 50%;
+    margin-top: 1%;
+    font-size: 1.5rem;
+}
+
+.redirect-text a {
+    color: #FFFFFF;
 }

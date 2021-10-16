@@ -1,5 +1,5 @@
 from api_calls import get_fixtures_data, get_fixtures_by_club_name, sort_data_by_round, get_all_club_names, \
-    get_group_standings, get_live_matches
+    get_group_standings, get_live_matches, get_match_events
 
 from flask import Flask, render_template, request, url_for, redirect
 from tasks import send_contact_email
@@ -59,9 +59,17 @@ def standings_page():
 @app.route('/live-matches')
 def live_matches_page():
 
-    live_matches = get_live_matches()
+    live_matches = get_live_matches('359')
 
     return render_template('live-matches-browser.html', live_matches=live_matches)
+
+
+@app.route('/live-matches/<match_id>')
+def live_events_page(match_id):
+
+    match_info = get_match_events(match_id)
+
+    return render_template('live-match-events.html', match_info=match_info)
 
 
 if __name__ == '__main__':

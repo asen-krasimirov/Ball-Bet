@@ -132,6 +132,10 @@ def get_live_matches(competition_id='244'):
     return all_data
 
 
+def get_match_events(match_id):
+    pass
+
+
 api_key = os.getenv('API_KEY')
 api_secret = os.getenv('API_SECRET')
 

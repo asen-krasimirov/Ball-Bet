@@ -1,0 +1,118 @@
+{% extends 'common/base.html' %}
+
+{% block additional_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/live_matches_browser_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/live_match_events_style.css') }}">
+{% endblock %}
+
+
+{% block main_content %}
+
+    <article class="match-info-holder">
+        <div class="home-info">
+            <div class="home-img-holder">
+                <img src="{{ url_for('static', filename='images/club_logos/Ajax.png') }}" alt="home-logo">
+            </div>
+
+            <p class="home-name">
+                Paris Saint Germain
+            </p>
+        </div>
+        <div class="match-info">
+            <p class="match-time">89'</p>
+            <p class="match-score">2 - 2</p>
+            <p class="match-location">
+                <span>Location:</span>
+                Independence Stadium
+            </p>
+        </div>
+        <div class="away-info">
+            <p class="away-name">
+                AC Milan
+            </p>
+
+            <div class="away-img-holder">
+                <img src="{{ url_for('static', filename='images/club_logos/AC Milan.png') }}" alt="away-logo">
+            </div>
+        </div>
+
+    </article>
+
+    <h3 class="events-title">Latest Match Events</h3>
+
+    <section class="events-holder">
+        <!--
+        "player": "MARIAPPA ADRIAN",
+        "time": "13",
+        "event": "YELLOW_CARD",
+        "sort": "1",
+        "home_away": "h"
+        -->
+
+        <div class="event home-event">
+            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/Ajax.png') }}" alt="home-logo">
+            <p class="time">87'</p>
+            <p>Mariappa Adrian</p>
+            <div class="event-status">
+                <img src="{{ url_for('static', filename='images/event_status/yellow-card.png') }}" alt="status-img">
+                <p>Yellow Card</p>
+            </div>
+            <i class="fas fa-arrow-up"></i>
+
+        </div>
+
+        <div class="event home-event">
+            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/Ajax.png') }}" alt="home-logo">
+            <p class="time">79'</p>
+            <p>Kylian Mbappe </p>
+            <div class="event-status">
+                <img src="{{ url_for('static', filename='images/event_status/goal.png') }}" alt="status-img">
+                <p>GOAL !!!</p>
+            </div>
+            <i class="fas fa-arrow-up"></i>
+
+        </div>
+
+        <div class="event away-event">
+            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/AC Milan.png') }}" alt="away-logo">
+            <p class="time">63'</p>
+            <p>Zarko Zlatev </p>
+            <div class="event-status">
+                <img src="{{ url_for('static', filename='images/event_status/penalty.png') }}" alt="status-img">
+                <p>Penalty</p>
+            </div>
+            <i class="fas fa-arrow-up"></i>
+
+        </div>
+
+        <div class="event home-event">
+            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/Ajax.png') }}" alt="home-logo">
+            <p class="time">41'</p>
+            <p>Gosho</p>
+            <div class="event-status">
+                <img src="{{ url_for('static', filename='images/event_status/red-card.png') }}" alt="status-img">
+                <p>Red Card</p>
+            </div>
+            <i class="fas fa-arrow-up"></i>
+
+        </div>
+
+        <div class="event away-event">
+            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/AC Milan.png') }}" alt="away-logo">
+            <p class="time">40'</p>
+            <p>Kylian Mbappe</p>
+            <div class="event-status">
+                <img src="{{ url_for('static', filename='images/event_status/yellow-red-card.png') }}" alt="status-img">
+                <p>Yellow-Red Card</p>
+            </div>
+            <i class="fas fa-arrow-up"></i>
+
+        </div>
+
+        <div class="kick-off-info">
+            <i class="fas fa-futbol"></i>
+            <p>Kick-Off at 19:45:00</p>
+        </div>
+
+    </section>
+{% endblock %}
