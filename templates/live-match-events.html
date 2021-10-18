@@ -26,12 +26,10 @@
             </p>
         </div>
         <div class="match-info">
-            <p class="match-time">{{ match_info.time }}'</p>
-            <p class="match-score">{{ match_info.score }}</p>
-            <p class="match-location">
-                <span>Location:</span>
-                {{ match_info.location }}
-            </p>
+            <p class="match-time">FT'</p>
+            <p class="match-score">1 - 2</p>
+            <p>Location:</p>
+            <p class="match-location">Makareio Stadio</p>
         </div>
         <div class="away-info">
             <p class="away-name">
@@ -52,19 +50,19 @@
             <div class="final-whistle-info">
                 <p>Final Whistle</p>
                 <i class="fas fa-hourglass-end"></i>
-{#                <i class="fas fa-arrow-up"></i>#}
+                {#                <i class="fas fa-arrow-up"></i>#}
             </div>
         {% endif %}
 
         {% for event in events %}
             {% if event.home_away == 'h' %}
-            <div class="event home-event">
-            <img class="event-logo" src="{{ url_for('static', filename=match_info.home_logo) }}"
-                 alt="home-logo">
+                <div class="event home-event">
+                <img class="event-logo" src="{{ url_for('static', filename=match_info.home_logo) }}"
+                     alt="home-logo">
             {% else %}
-            <div class="event away-event">
-            <img class="event-logo" src="{{ url_for('static', filename=match_info.away_logo) }}"
-                 alt="away-logo">
+                <div class="event away-event">
+                <img class="event-logo" src="{{ url_for('static', filename=match_info.away_logo) }}"
+                     alt="away-logo">
             {% endif %}
 
         <p class="time">{{ event.time }}'</p>

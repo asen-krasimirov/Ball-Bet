@@ -57,7 +57,7 @@ def standings_page():
 
 @app.route('/live-matches')
 def live_matches_page():
-    live_matches = get_live_matches()
+    live_matches = get_live_matches('44')  # 44 set for debugging
 
     return render_template('live-matches-browser.html', live_matches=live_matches)
 
