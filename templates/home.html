@@ -11,37 +11,35 @@
         </p>
     </header>
 
-    <div class="home-holder-holder">
-        <section class="home-nav-holder">
-            <article class="home-nav fixtures">
-                <h3 class="home-nav-title">FIXTURES</h3>
-                <p class="home-nav-text">
-                    Here you will be able to get the list of all matches that are going to be played in the future.
-                </p>
-                <a class="main-button type1" href="{{ url_for('fixtures_page') }}">Go</a>
-            </article>
+    <section class="home-nav-holder">
+        <article class="home-nav fixtures">
+            <h3 class="home-nav-title">FIXTURES</h3>
+            <p class="home-nav-text">
+                Here you will be able to get the list of all matches that are going to be played in the future.
+            </p>
+            <a class="main-button type1" href="{{ url_for('fixtures_page') }}">Go</a>
+        </article>
 
-            <div class="vline"></div>
+        <div class="vline"></div>
 
-            <article class="home-nav standings">
-                <h3 class="home-nav-title">STANDINGS</h3>
-                <p class="home-nav-text">
-                    See who is on first place and who is going to win the league or progress through the next stage.
-                </p>
-                <a class="main-button type1" href="{{ url_for('standings_page') }}">Go</a>
-            </article>
+        <article class="home-nav standings">
+            <h3 class="home-nav-title">STANDINGS</h3>
+            <p class="home-nav-text">
+                See who is on first place and who is going to win the league or progress through the next stage.
+            </p>
+            <a class="main-button type1" href="{{ url_for('standings_page') }}">Go</a>
+        </article>
 
 
-            <div class="vline"></div>
+        <div class="vline"></div>
 
-            <article class="home-nav events">
-                <h3 class="home-nav-title">EVENTS</h3>
-                <p class="home-nav-text">
-                    Here you can get information about yellow cards, red cards, goals, goal scorers, and missed
-                    penalties.
-                </p>
-                <a class="main-button type1" href="{{ url_for('live_matches_page') }}">Go</a>
-            </article>
-        </section>
-    </div>
+        <article class="home-nav events">
+            <h3 class="home-nav-title">EVENTS</h3>
+            <p class="home-nav-text">
+                Here you can get information about yellow cards, red cards, goals, goal scorers, and missed
+                penalties.
+            </p>
+            <a class="main-button type1" href="{{ url_for('live_matches_page') }}">Go</a>
+        </article>
+    </section>
 {% endblock %}

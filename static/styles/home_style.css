@@ -1,55 +1,32 @@
 
-.heading-text {
-    margin: 2% auto 5%;
-    padding: 10% 5% 5%;
+.heading-text {/*     margin: 2% auto 5%; */padding: 10% 20%;/* min-width: 500px; *//*     min-height: 300px; */width: 100%;font-size: 2.5rem;text-align: center;background-image: url('/static/images/players.jpg');background-repeat: no-repeat;background-size: cover;text-shadow: 5px 5px 5px #000;cursor: default;}
 
-    width: 60%;
-    min-width: 500px;
-
-    font-size: 2.5rem;
-    text-align: center;
-
-    text-shadow: 5px 5px 5px #000;
-
-    cursor: default;
-}
-
-header.home-header::before {
-    content: "";
-    display: inline;
-    position: absolute;
-    animation: light-down 500ms;
-    opacity: 0.65;
-
-    width: 99%;
-    max-width: 2000px;
-    height: 55%;
-    
-    z-index: -1;
-    
-    background-image: url('/static/images/players.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-header.home-header:hover::before {
+/* header.home-header:hover::before {
     animation: light-up 500ms;
     opacity: 0.9;
-}
+} */
 
 .home-nav-holder {
-    margin-left: 13%;
-    margin-bottom: 3%;
-
+    display: flex;
+    /* width: 80%; */
+    /*     margin-left: 13%; */
+    /*     margin-bottom: 3%; */
+    margin: auto;
+    padding: 10%;
+    background-image: url('/static/images/stadium.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     text-shadow: 5px 5px 5px #000;
-
     cursor: default;
+    justify-content: space-evenly;
 }
 
 .home-nav {
-    display: inline-block;
-    width: 20%;
+/*     display: inline-block; */
+/*     width: 20%; */
     text-align: center;
+/*     border-left: 3px solid #535353; */
 }
 
 .home-nav-title {
@@ -65,37 +42,12 @@ header.home-header:hover::before {
 
 .vline {
     display: inline-block;
-
     margin: 0 5%;
-    
-    height: 230px;
-
+    height: 350px;
     border-left: 6px solid #535353;
 }
 
-.home-holder-holder:before {
-    content: "";
-    display: inline;
-    position: absolute;
-    animation: light-down 500ms;
-    opacity: 0.6;
-
-    width: 99%;
-    max-width: 2000px;
-    height: 41%;
-    max-height: 400px;
-    
-    z-index: -1;
-    
-    background-image: url('/static/images/stadium.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    border-radius: 0 0 100px 100px;
-}
-
-.home-holder-holder:hover::before {
+/* .home-holder-holder:hover::before {
     animation: light-up 500ms;
     opacity: 0.85;
-}
+} */
