@@ -6,14 +6,14 @@ article.match-info-holder {
 
 h3.events-title {
     width: 50%;
-    margin: 3% auto;
+    margin: 3% auto 1%;
 
     font-size: 2.5rem;
     text-align: center;
 }
 
 p.match-location span {
-     font-size: 1rem;
+    font-size: 1rem;
 }
 
 .event {
@@ -21,7 +21,7 @@ p.match-location span {
     width: 40%;
     margin: 5% auto;
     padding: 1%;
-    
+
     font-size: 2rem;
     text-align: center;
 
@@ -59,7 +59,7 @@ p.match-location span {
     right: 1px;
 }
 
-.event i.fa-arrow-up {
+i.fa-arrow-up {
     position: absolute;
     /* top: 50%; */
     left: 50%;
@@ -71,21 +71,58 @@ p.match-location span {
     color: #0E0E22;
 }
 
-div.kick-off-info {
+.final-whistle-info i.fa-arrow-up {
+    bottom: -18%;
+}
+
+.to-top-button {
+    display: none;
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    background: #1F2056;
+
+    cursor: pointer;
+}
+
+.to-top-button:hover {
+    box-shadow: 0 0 15px -5px #0E0E22;
+}
+
+.to-top-button i.fa-arrow-up {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    transform: translate(0, 0);
+
+    font-size: 85px;
+    color: #FFFFFF
+}
+
+.kick-off-info,
+.final-whistle-info {
     width: 50%;
-    margin: auto;
-    margin-top: 130px;
-    margin-bottom: 30px;
-    
+    margin: 130px auto 30px;
+
     font-size: 2.5rem;
     text-align: center;
 }
 
-div.kick-off-info p {
-    margin: 0px;
+.final-whistle-info,
+.final-whistle-info * {
+    margin: 0 auto;
 }
 
-i.fa-futbol {
+div.kick-off-info p {
+    margin: 0;
+}
+
+i.fa-futbol,
+i.fa-hourglass-end {
     font-size: 90px;
     margin: 20px;
 }

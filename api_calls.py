@@ -26,6 +26,12 @@ def sort_data_by_round(all_data):
     return sorted_data
 
 
+def attach_club_logos(data):
+    for content in data:
+        content['home_logo'] = f'images/club_logos/{(content["home_name"])}.png'
+        content['away_logo'] = f'images/club_logos/{(content["away_name"])}.png'
+
+
 def get_fixtures_data(date='', competition_id='244'):
     def correct_time():
         for content in all_data:
@@ -35,11 +41,6 @@ def get_fixtures_data(date='', competition_id='244'):
                 year=fixture_date[0], month=fixture_date[1], day=fixture_date[2],
                 hour=fixture_time[0], minute=fixture_time[1]
             ) + timedelta(hours=3)
-
-    def attach_club_logos():
-        for content in all_data:
-            content['home_logo'] = f'images/club_logos/{(content["home_name"])}.png'
-            content['away_logo'] = f'images/club_logos/{(content["away_name"])}.png'
 
     url = 'https://livescore-api.com/api-client/fixtures/matches.json'  # Get all Fixtures URL
     querystring['competition_id'] = competition_id
@@ -65,7 +66,7 @@ def get_fixtures_data(date='', competition_id='244'):
         cur_page += 1
 
     correct_time()
-    attach_club_logos()
+    attach_club_logos(all_data)
     return all_data
 
 
@@ -100,7 +101,7 @@ def get_all_club_names(data):
 
 
 def get_group_standings(group: str, competition_id='244'):
-    def attach_club_logos():
+    def group_attach_club_logos():
         for content in group_data:
             content['logo'] = f'images/club_logos/{(content["name"])}.png'
 
@@ -111,16 +112,11 @@ def get_group_standings(group: str, competition_id='244'):
     group_data = requests.request('GET', url, params=querystring).text
     group_data = json.loads(group_data)['data']['table']
 
-    attach_club_logos()
+    group_attach_club_logos()
     return group_data
 
 
 def get_live_matches(competition_id='244'):
-
-    def attach_club_logos():
-        for content in all_data:
-            content['home_logo'] = f'images/club_logos/{(content["home_name"])}.png'
-            content['away_logo'] = f'images/club_logos/{(content["away_name"])}.png'
 
     url = 'https://livescore-api.com/api-client/scores/live.json'
     querystring['competition_id'] = competition_id
@@ -128,18 +124,26 @@ def get_live_matches(competition_id='244'):
     all_data = requests.request('GET', url, params=querystring).text
     all_data = json.loads(all_data)['data']['match']
 
-    attach_club_logos()
+    attach_club_logos(all_data)
     return all_data
 
 
-def get_match_events(match_id):
-    pass
+def get_match_events(match_id='129180'):
+    def events_attach_club_logos(data):
+        data['home_logo'] = f'images/club_logos/{(data["home_name"])}.png'
+        data['away_logo'] = f'images/club_logos/{(data["away_name"])}.png'
 
+    url = 'https://livescore-api.com/api-client/scores/events.json'
+    querystring['id'] = match_id
 
-api_key = os.getenv('API_KEY')
-api_secret = os.getenv('API_SECRET')
+    all_data = requests.request('GET', url, params=querystring).text
+    all_data = json.loads(all_data)['data']
+
+    events_attach_club_logos(all_data['match'])
+    return all_data
+
 
 querystring = {
-    'key': api_key,
-    'secret': api_secret,
+    'key': os.getenv('API_KEY'),
+    'secret': os.getenv('API_SECRET'),
 }

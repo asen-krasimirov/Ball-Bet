@@ -5,34 +5,41 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/live_match_events_style.css') }}">
 {% endblock %}
 
+{% block additional_scripts %}
+    <script type="module" src="{{ url_for('static', filename='scripts/to_top_scroller.js') }}"></script>
+{% endblock %}
 
 {% block main_content %}
+
+    <button id="to-top" class="to-top-button">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <article class="match-info-holder">
         <div class="home-info">
             <div class="home-img-holder">
-                <img src="{{ url_for('static', filename='images/club_logos/Ajax.png') }}" alt="home-logo">
+                <img src="{{ url_for('static', filename=match_info.home_logo) }}" alt="home-logo">
             </div>
 
             <p class="home-name">
-                Paris Saint Germain
+                {{ match_info.home_name }}
             </p>
         </div>
         <div class="match-info">
-            <p class="match-time">89'</p>
-            <p class="match-score">2 - 2</p>
+            <p class="match-time">{{ match_info.time }}'</p>
+            <p class="match-score">{{ match_info.score }}</p>
             <p class="match-location">
                 <span>Location:</span>
-                Independence Stadium
+                {{ match_info.location }}
             </p>
         </div>
         <div class="away-info">
             <p class="away-name">
-                AC Milan
+                {{ match_info.away_name }}
             </p>
 
             <div class="away-img-holder">
-                <img src="{{ url_for('static', filename='images/club_logos/AC Milan.png') }}" alt="away-logo">
+                <img src="{{ url_for('static', filename=match_info.away_logo) }}" alt="away-logo">
             </div>
         </div>
 
@@ -41,78 +48,61 @@
     <h3 class="events-title">Latest Match Events</h3>
 
     <section class="events-holder">
-        <!--
-        "player": "MARIAPPA ADRIAN",
-        "time": "13",
-        "event": "YELLOW_CARD",
-        "sort": "1",
-        "home_away": "h"
-        -->
+        {% if match_info.time == 'FT' %}
+            <div class="final-whistle-info">
+                <p>Final Whistle</p>
+                <i class="fas fa-hourglass-end"></i>
+                <i class="fas fa-arrow-up"></i>
+            </div>
+        {% endif %}
 
-        <div class="event home-event">
-            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/Ajax.png') }}" alt="home-logo">
-            <p class="time">87'</p>
-            <p>Mariappa Adrian</p>
-            <div class="event-status">
-                <img src="{{ url_for('static', filename='images/event_status/yellow-card.png') }}" alt="status-img">
+        {% for event in events %}
+            {% if event.home_away == 'h' %}
+            <div class="event home-event">
+            <img class="event-logo" src="{{ url_for('static', filename=match_info.home_logo) }}"
+                 alt="home-logo">
+            {% else %}
+            <div class="event away-event">
+            <img class="event-logo" src="{{ url_for('static', filename=match_info.away_logo) }}"
+                 alt="away-logo">
+            {% endif %}
+
+        <p class="time">{{ event.time }}'</p>
+        <p>{{ event.player }}</p>
+
+        <div class="event-status">
+            {% if event.event == 'YELLOW_CARD' %}
+                <img src="{{ url_for('static', filename='images/event_status/yellow-card.png') }}"
+                     alt="status-img">
                 <p>Yellow Card</p>
-            </div>
-            <i class="fas fa-arrow-up"></i>
-
-        </div>
-
-        <div class="event home-event">
-            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/Ajax.png') }}" alt="home-logo">
-            <p class="time">79'</p>
-            <p>Kylian Mbappe </p>
-            <div class="event-status">
-                <img src="{{ url_for('static', filename='images/event_status/goal.png') }}" alt="status-img">
-                <p>GOAL !!!</p>
-            </div>
-            <i class="fas fa-arrow-up"></i>
-
-        </div>
-
-        <div class="event away-event">
-            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/AC Milan.png') }}" alt="away-logo">
-            <p class="time">63'</p>
-            <p>Zarko Zlatev </p>
-            <div class="event-status">
+            {% elif event.event == 'RED_CARD' %}
+                <img src="{{ url_for('static', filename='images/event_status/red-card.png') }}"
+                     alt="status-img">
+                <p>Red Card</p>
+            {% elif event.event == 'YELLOW_RED_CARD' %}
+                <img src="{{ url_for('static', filename='images/event_status/yellow-red-card.png') }}"
+                     alt="status-img">
+                <p>Yellow-Red Card</p>
+            {% elif event.event == 'GOAL_PENALTY' %}
                 <img src="{{ url_for('static', filename='images/event_status/penalty.png') }}" alt="status-img">
                 <p>Penalty</p>
-            </div>
-            <i class="fas fa-arrow-up"></i>
+            {% elif event.event == 'GOAL' %}
+                <img src="{{ url_for('static', filename='images/event_status/goal.png') }}" alt="status-img">
+                <p>GOAL !!!</p>
+            {% elif event.event == 'OWN_GOAL' %}
+                <img src="{{ url_for('static', filename='images/event_status/goal.png') }}" alt="status-img">
+                <p>Own Goal</p>
+            {% endif %}
+        </div>
+        <i class="fas fa-arrow-up"></i>
 
         </div>
 
-        <div class="event home-event">
-            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/Ajax.png') }}" alt="home-logo">
-            <p class="time">41'</p>
-            <p>Gosho</p>
-            <div class="event-status">
-                <img src="{{ url_for('static', filename='images/event_status/red-card.png') }}" alt="status-img">
-                <p>Red Card</p>
-            </div>
-            <i class="fas fa-arrow-up"></i>
-
-        </div>
-
-        <div class="event away-event">
-            <img class="event-logo" src="{{ url_for('static', filename='images/club_logos/AC Milan.png') }}" alt="away-logo">
-            <p class="time">40'</p>
-            <p>Kylian Mbappe</p>
-            <div class="event-status">
-                <img src="{{ url_for('static', filename='images/event_status/yellow-red-card.png') }}" alt="status-img">
-                <p>Yellow-Red Card</p>
-            </div>
-            <i class="fas fa-arrow-up"></i>
-
-        </div>
+        {% endfor %}
 
         <div class="kick-off-info">
             <i class="fas fa-futbol"></i>
-            <p>Kick-Off at 19:45:00</p>
+            <p>Kick-Off</p>
         </div>
-
     </section>
 {% endblock %}

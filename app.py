@@ -24,7 +24,6 @@ def about_page():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact_page():
-
     if request.method == 'POST':
         form = request.form.to_dict()
         send_contact_email(
@@ -58,18 +57,21 @@ def standings_page():
 
 @app.route('/live-matches')
 def live_matches_page():
-
-    live_matches = get_live_matches('359')
+    live_matches = get_live_matches()
 
     return render_template('live-matches-browser.html', live_matches=live_matches)
 
 
 @app.route('/live-matches/<match_id>')
 def live_events_page(match_id):
+    all_data = get_match_events(match_id)
+    all_data['event'] = reversed(all_data['event'])
 
-    match_info = get_match_events(match_id)
-
-    return render_template('live-match-events.html', match_info=match_info)
+    return render_template(
+        'live-match-events.html',
+        match_info=all_data['match'],
+        events=all_data['event']
+    )
 
 
 if __name__ == '__main__':
