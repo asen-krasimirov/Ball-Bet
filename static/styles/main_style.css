@@ -5,18 +5,34 @@
 }
 
 @keyframes light-up {
-    0% { opacity: 0.65 }
-    25% { opacity: 0.8 }
-    50% { opacity: 0.9 }
+    0% {
+        opacity: 0.65
+    }
+    25% {
+        opacity: 0.8
+    }
+    50% {
+        opacity: 0.9
+    }
 }
 
 @keyframes light-down {
-    0% { opacity: 0.9 }
-    25% { opacity: 0.8 }
-    50% { opacity: 0.65 }
+    0% {
+        opacity: 0.9
+    }
+    25% {
+        opacity: 0.8
+    }
+    50% {
+        opacity: 0.65
+    }
 }
 
 html {
+    font-size: 0.8vw;
+}
+
+body {
     box-sizing: inherit;
 
     font-family: 'Red Hat Text', sans-serif;
@@ -27,24 +43,15 @@ html {
 }
 
 header.main-header {
+    align-items: stretch;
+
     display: flex;
-    padding-bottom: 20px;
-}
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-header.main-header::before {
-    content: "";
-    display: inline;
-    position: absolute;
-    animation: light-down 500ms;
-    opacity: 0.65;
+    min-height: 300px;
+    padding: 3% 5%;
 
-    width: 99%;
-    max-width: 2000px;
-    height: 35%;
-    max-height: 315px;
-    
-    z-index: -1;
-    
     background-image: url('/static/images/maxresdefault.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,37 +65,46 @@ header.main-header:hover::before {
 }
 
 .main-title {
-    display: inline-block;
-    
-    margin: 1% 0 0 4%;
+    flex-basis: 5%;
 
-    width: 20%;
+    display: inline-block;
+    margin: 0;
 
     font-family: sans-serif;
     font-weight: 700;
-    font-size: 7rem;
+    font-size: 8rem;
 
     user-select: none;
 }
 
 nav {
-    display: inline-block;
-    width: 50%;
+    flex-grow: 2;
 }
 
 .links-list {
+    flex-basis: 55%;
+
     display: flex;
-    margin: 10% 0 0 40%;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
 }
 
 .links-list li {
-    display: inline-block;
-    margin-right: 15%;
-    font-size: 5rem;
+    flex-basis: 30%;
+
+    font-size: 6rem;
+
+    list-style-type: none;
 }
 
 .links-list li a {
     text-decoration: none;
+
     color: #FFF;
+
     cursor: pointer;
 }
