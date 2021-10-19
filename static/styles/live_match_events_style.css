@@ -1,7 +1,28 @@
+@keyframes indicate-time {
+    0% {
+        width: 0;
+    }
+    25% {
+        width: 40px;
+    }
+}
 
 article.match-info-holder {
     height: 30vh;
     margin-top: 2%;
+}
+
+.match-info.animated-info .match-time:after {
+    content: "";
+    display: block;
+    position: absolute;
+
+    /*width: 0;*/
+    height: 2px;
+    background: rgb(255, 255, 255);
+
+    animation: indicate-time 3s infinite ease-in-out;
+    width: 40px;
 }
 
 h3.events-title {

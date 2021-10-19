@@ -25,7 +25,12 @@
                 {{ match_info.home_name }}
             </p>
         </div>
-        <div class="match-info">
+
+        {% if match_info.time != 'FT' %}
+            <div class="match-info animated-info">
+        {% else %}
+            <div class="match-info">
+        {% endif %}
             <p class="match-time">{{ match_info.time }}'</p>
             <p class="match-score">{{ match_info.score }}</p>
             <p>Location:</p>
