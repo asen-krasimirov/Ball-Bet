@@ -1,3 +1,46 @@
+@keyframes light-up-home {
+    0% {
+        opacity: 0.65;
+        text-shadow: 1px 1px 4px #000;
+    }
+
+    40% {
+        opacity: 0.8;
+        text-shadow: 2px 2px 8px #000;
+    }
+
+    50% {
+        opacity: 0.9;
+        text-shadow: 3px 3px 10px #000;
+    }
+}
+
+@keyframes light-down-home {
+    0% {
+        opacity: 0.9;
+        text-shadow: 3px 3px 10px #000;
+    }
+    40% {
+        opacity: 0.8;
+        text-shadow: 2px 2px 8px #000;
+    }
+    50% {
+        opacity: 0.65;
+        text-shadow: 1px 1px 4px #000;
+    }
+}
+
+header.home-header {
+    animation: light-down-home 250ms;
+    opacity: 0.65;
+    text-shadow: 1px 1px 4px #000;
+}
+
+header.home-header:hover {
+    animation: light-up-home 250ms;
+    opacity: 1;
+    text-shadow: 3px 3px 10px #000;
+}
 
 .heading-text {/*     margin: 2% auto 5%; */padding: 10% 20%;/* min-width: 500px; *//*     min-height: 300px; */width: 100%;font-size: 2.5rem;text-align: center;background-image: url('/static/images/players.jpg');background-repeat: no-repeat;background-size: cover;text-shadow: 5px 5px 5px #000;cursor: default;}
 
@@ -17,9 +60,21 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    text-shadow: 5px 5px 5px #000;
+
+    animation: light-down-home 250ms;
+    opacity: 0.65;
+
+    text-shadow: 1px 1px 4px #000;
+    /*text-shadow: 2px 2px 10px #000;*/
+
     cursor: default;
     justify-content: space-evenly;
+}
+
+.home-nav-holder:hover {
+    animation: light-up-home 250ms;
+    opacity: 1;
+    text-shadow: 2px 2px 10px #000;
 }
 
 .home-nav {
@@ -37,13 +92,13 @@
 
 .home-nav-text {
     margin-bottom: 15%;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .vline {
     display: inline-block;
     margin: 0 5%;
-    height: 350px;
+    height: 45vh;
     border-left: 6px solid #535353;
 }
 
