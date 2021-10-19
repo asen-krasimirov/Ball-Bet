@@ -26,10 +26,10 @@
             </p>
         </div>
         <div class="match-info">
-            <p class="match-time">FT'</p>
-            <p class="match-score">1 - 2</p>
+            <p class="match-time">{{ match_info.time }}'</p>
+            <p class="match-score">{{ match_info.score }}</p>
             <p>Location:</p>
-            <p class="match-location">Makareio Stadio</p>
+            <p class="match-location">{{ match_info.location }}</p>
         </div>
         <div class="away-info">
             <p class="away-name">
@@ -90,6 +90,10 @@
             {% elif event.event == 'OWN_GOAL' %}
                 <img src="{{ url_for('static', filename='images/event_status/goal.png') }}" alt="status-img">
                 <p>Own Goal</p>
+            {% elif event.event == 'SUBSTITUTION' %}
+                <img src="{{ url_for('static', filename='images/event_status/substitution.png') }}" alt="status-img">
+                <p>{{ event.info }}</p>
+                <p>Substitution</p>
             {% endif %}
         </div>
         <i class="fas fa-arrow-up"></i>
