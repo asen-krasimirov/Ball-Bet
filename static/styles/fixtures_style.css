@@ -197,3 +197,35 @@
     animation: light-up-fixture 500ms;
     background: #1e508d;
 }
+
+/* responsive code */
+
+@media all and (max-width: 480px) {
+    .club-name-form {
+        font-size: 4.3rem;
+    }
+
+    .club-name-form input,
+    .club-name-form button {
+        font-size: 3.3rem;
+    }
+
+    .future-matches-title {
+        font-size: 7rem;
+    }
+
+    .future-match {
+        min-width: 170px;
+        padding: 2%;
+    }
+
+    .future-match div.club-img-holder {
+        width: 50px;
+        height: 50px;
+    }
+
+    .future-match div.club-img-holder img {
+        max-width: 100%;
+        max-height: 50px;
+    }
+}

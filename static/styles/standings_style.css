@@ -114,3 +114,23 @@ td.club img {
     display: inline-block;
     vertical-align: middle;
 }
+
+/* responsible code */
+
+@media all and (max-width: 480px) {
+
+    nav.standings-nav li {
+        width: 40px;
+        height: 40px;
+    }
+
+    nav.standings-nav li a {
+        width: auto;
+        height: auto;
+    }
+
+    nav.standings-nav li:hover {
+        animation: none;
+        box-shadow: 0 0 15px 5px #344080;
+    }
+}

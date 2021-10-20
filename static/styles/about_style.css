@@ -39,3 +39,25 @@ span.powered-by-text a {
     color: #FFF;
     text-decoration: none;
 }
+
+
+/* responsive code */
+
+@media all and (max-width: 480px) {
+
+    .info-page-title {
+        font-size: 6rem;
+    }
+
+    section.info-section {
+        width: 95%;
+    }
+
+    section.info-section p.info-text {
+        font-size: 4rem;
+    }
+
+    section.info-section p.info-text.powered-info-text {
+        font-size: 2.3rem;
+    }
+}

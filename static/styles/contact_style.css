@@ -51,3 +51,28 @@ section.contact-info-holder {
     font-size: 2rem;
     cursor: pointer;
 }
+
+
+/* responsive code */
+
+@media all and (max-width: 480px) {
+
+    h2.contact-title {
+        font-size: 6rem;
+    }
+
+    .contact-info-holder form .input-holder {
+        font-size: 3rem;
+    }
+
+    .contact-info-holder form input,
+    .contact-info-holder form textarea,
+    .contact-info-holder form .submit-button{
+        font-size: 3rem;
+    }
+
+    .contact-info-holder form .submit-button {
+        padding: 0;
+    }
+
+}

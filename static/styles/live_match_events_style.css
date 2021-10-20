@@ -7,6 +7,16 @@
     }
 }
 
+@keyframes indicate-time-mobile {
+    0% {
+        width: 0;
+    }
+    25% {
+        width: 20px;
+    }
+}
+
+
 article.match-info-holder {
     height: 30vh;
     margin-top: 2%;
@@ -17,7 +27,6 @@ article.match-info-holder {
     display: block;
     position: absolute;
 
-    /*width: 0;*/
     height: 2px;
     background: rgb(255, 255, 255);
 
@@ -146,4 +155,75 @@ i.fa-futbol,
 i.fa-hourglass-end {
     font-size: 90px;
     margin: 20px;
+}
+
+/* responsive code */
+
+@media all and (max-width: 1600px) {
+    .event .event-logo {
+        max-height: 250px;
+    }
+}
+
+
+@media all and (max-width: 750px) {
+    .event .event-logo {
+        max-height: 130px;
+    }
+
+    article.match-info-holder div img {
+        max-width: 130px;
+    }
+
+}
+
+@media all and (max-width: 480px) {
+
+    .event .event-logo {
+        max-width: 50px;
+    }
+
+    .event .event-status img {
+        max-width: 50px;
+    }
+
+    .match-info.animated-info .match-time:after {
+        animation: indicate-time-mobile 3s infinite;
+        width: 20px;
+    }
+
+    article.match-info-holder div img {
+        max-width: 50px;
+    }
+
+    h3.events-title {
+        font-size: 6.5rem;
+    }
+
+    .event p {
+        font-size: 3rem;
+    }
+
+    .kick-off-info {
+        margin: 55px auto;
+    }
+
+    .kick-off-info i {
+        font-size: 10rem;
+        margin: 0;
+    }
+
+    div.kick-off-info p {
+        font-size: 3rem;
+        margin-top: 10px;
+    }
+
+    #to-top {
+        width: 50px;
+        height: 50px;
+    }
+
+    #to-top i {
+        font-size: 10rem;
+    }
 }

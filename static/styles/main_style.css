@@ -67,11 +67,6 @@ header.main-header:hover {
     opacity: 1;
 }
 
-/*header.main-header:hover::before {*/
-/*    animation: light-up 500ms;*/
-/*    opacity: 0.9;*/
-/*}*/
-
 .main-title {
     flex-basis: 5%;
 
@@ -115,4 +110,32 @@ nav {
     color: #FFF;
 
     cursor: pointer;
+}
+
+/* responsive code */
+
+@media all and (max-width: 750px) {
+    .main-title {
+        font-size: 19rem;
+    }
+}
+
+@media all and (max-width: 480px) {
+    header.main-header {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        animation: none;
+        opacity: 1;
+
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/images/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    header.main-header:hover {
+        animation: none;
+        opacity: 1;
+    }
 }

@@ -40,7 +40,8 @@ header.home-header {
     text-align: center;
 
     background-image: url('/static/images/players.jpg');
-    background-repeat: no-repeat;background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
     cursor: default;
 
     animation: light-down-home 250ms;
@@ -102,4 +103,62 @@ header.home-header:hover {
     margin: 0 5%;
     height: 45vh;
     border-left: 6px solid #535353;
+}
+
+/* responsible code */
+
+@media all and (max-width: 480px) {
+    header.home-header {
+        padding: 20% 10%;
+    }
+
+    .heading-text {
+        font-size: 3rem;
+    }
+
+    .home-nav-title {
+        font-size: 4rem;
+    }
+
+    .home-nav-text {
+        font-size: 2.5rem;
+    }
+
+    .vline {
+        height: 15vh;
+    }
+
+    .main-button {
+        font-size: 2.6rem;
+    }
+
+    header.home-header {
+        animation: none;
+        opacity: 1;
+
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/images/players.jpg');
+         background-repeat: no-repeat;
+         background-size: cover;
+
+    }
+
+    header.home-header:hover {
+        animation: none;
+        opacity: 1;
+    }
+
+    .home-nav-holder {
+        animation: none;
+        opacity: 1;
+
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/images/stadium.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+    .home-nav-holder:hover {
+        animation: none;
+        opacity: 1;
+    }
 }

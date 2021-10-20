@@ -46,7 +46,6 @@ article.match-info-holder div.match-info p {
     margin: 0;
 }
 
-
 article.match-info-holder div img {
     max-width: 200px;
     max-height: 50%;
@@ -54,6 +53,7 @@ article.match-info-holder div img {
 
 }
 article.match-info-holder div p {
+    text-align: center;
     font-size: 2.5rem;
 }
 
@@ -93,4 +93,21 @@ article.match-info-holder div.match-info a.details-link {
 
 .redirect-text a {
     color: #FFFFFF;
+}
+
+.team-info {
+    width: 25%;
+}
+
+/* responsive code */
+
+@media all and (max-width: 480px) {
+
+    article.match-info-holder div img {
+        max-width: 50px;
+    }
+
+    article.match-info-holder div p {
+        font-size: 5.5rem;
+    }
 }

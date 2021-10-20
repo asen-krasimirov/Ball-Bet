@@ -12,9 +12,9 @@
 
             {% for match in live_matches %}
                 <article class="match-info-holder">
-                    <div class="home-info">
+                    <div class="team-info home-info">
                         <div class="home-img-holder">
-                            <img src="{{ match.home_logo }}"
+                            <img src="{{ url_for('static', filename=match.home_logo) }}"
                                  alt="home-logo">
                         </div>
 
@@ -27,13 +27,13 @@
                         <p class="match-score">{{ match.score }}</p>
                         <a class="details-link" href="{{ url_for('live_events_page', match_id=match.id) }}">View Live Events</a>
                     </div>
-                    <div class="away-info">
+                    <div class="team-info away-info">
                         <p class="away-name">
                             {{ match.away_name }}
                         </p>
 
                         <div class="away-img-holder">
-                            <img src="{{ match.away_logo }}"
+                            <img src="{{ url_for('static', filename=match.away_logo) }}"
                                  alt="away-logo">
                         </div>
                     </div>
