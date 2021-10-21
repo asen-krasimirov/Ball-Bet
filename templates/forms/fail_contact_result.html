@@ -1,0 +1,11 @@
+{% extends 'common/base.html' %}
+
+{% block additional_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact_style.css') }}">
+{% endblock %}
+
+
+{% block main_content %}
+    <h2 class="contact-title">There was a problem sending your message!</h2>
+    <p class="contact-content">You can manually send it at <b>test.testing.tested.testring@gmail.com</b></p>
+{% endblock %}

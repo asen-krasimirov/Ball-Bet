@@ -52,6 +52,12 @@ section.contact-info-holder {
     cursor: pointer;
 }
 
+.contact-content {
+    width: 90%;
+    margin: 3%auto;
+    text-align: center;
+    font-size: 2.5rem;
+}
 
 /* responsive code */
 

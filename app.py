@@ -26,10 +26,14 @@ def about_page():
 def contact_page():
     if request.method == 'POST':
         form = request.form.to_dict()
-        send_contact_email(
+        is_send_successfully = send_contact_email(
             sender_email=form['sender-email'],
             message_content=form['feed-back-content'],
         )
+
+        if not is_send_successfully:
+            render_template('forms/fail_contact_result.html')
+
         return render_template('forms/success_contact_result.html')
 
     return render_template('forms/contact.html')

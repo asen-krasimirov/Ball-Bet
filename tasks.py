@@ -7,7 +7,6 @@ from email.mime.text import MIMEText
 
 
 def send_contact_email(sender_email, message_content):
-
     middleware_email = os.getenv('MAIN_SENDER_EMAIL')
     middleware_pass = os.getenv('MAIN_SENDER_PASS')
 
@@ -37,7 +36,14 @@ Message's content:\n
 
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login(middleware_email, middleware_pass)
-        server.sendmail(
-            middleware_email, middleware_email, message.as_string()
-        )
+        try:
+            server.login(middleware_email, middleware_pass)
+            server.sendmail(
+                middleware_email, middleware_email, message.as_string()
+            )
+            is_send_successfully = True
+
+        except smtplib.SMTPAuthenticationError:
+            is_send_successfully = False
+
+    return is_send_successfully
