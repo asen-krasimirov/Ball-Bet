@@ -133,4 +133,9 @@ td.club img {
         animation: none;
         box-shadow: 0 0 15px 5px #344080;
     }
+
+    td.club img {
+        max-width: 25px;
+        max-height: 25px;
+    }
 }

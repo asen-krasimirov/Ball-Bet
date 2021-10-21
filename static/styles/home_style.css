@@ -155,6 +155,7 @@ header.home-header:hover {
         background-repeat: no-repeat;
         background-size: cover;
 
+        border-radius: 0 0 50px 50px;
     }
 
     .home-nav-holder:hover {
