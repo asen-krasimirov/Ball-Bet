@@ -16,9 +16,7 @@ def send_contact_email(sender_email, message_content):
     message["From"] = middleware_email
     message["To"] = middleware_email
 
-    # profile_url = f'http://127.0.0.1:8002/auth/profile/{profile_pk}'
     send_time = datetime.now().strftime("%H:%M:%S %b, %d, %Y")
-    # browser_url = 'http://127.0.0.1:8002/rents/'
 
     text_content = f"""
 <br>
