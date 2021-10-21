@@ -1,1 +1,1 @@
-web: gunicorn ballbet.wsgi
+web: gunicorn app:app
